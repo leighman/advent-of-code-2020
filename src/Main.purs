@@ -1,10 +1,16 @@
 module Main where
 
 import Prelude
-
 import Effect (Effect)
-import Effect.Console (log)
+import Effect.Aff (launchAff_)
+import Effect.Class (liftEffect)
+import Effect.Console (logShow)
+import Node.Encoding (Encoding(..))
+import Node.FS.Aff (readTextFile)
+import Day01 (part1)
 
 main :: Effect Unit
-main = do
-  log "🍝"
+main =
+  launchAff_ do
+    fileContents <- readTextFile ASCII "./src/Day01.txt"
+    liftEffect $ logShow $ part1 fileContents
