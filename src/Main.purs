@@ -7,10 +7,10 @@ import Effect.Class (liftEffect)
 import Effect.Console (logShow)
 import Node.Encoding (Encoding(..))
 import Node.FS.Aff (readTextFile)
-import Day01 (part1)
+import Day01 (part2)
 
 main :: Effect Unit
 main =
   launchAff_ do
     fileContents <- readTextFile ASCII "./src/Day01.txt"
-    liftEffect $ logShow $ part1 fileContents
+    liftEffect $ logShow $ part2 fileContents
